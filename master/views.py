@@ -129,14 +129,15 @@ def apartmentDetailPage(request, slug=None):
                 email_host_user = email_password.gmail_email
                 email_host_password = email_password.password
                 try:
-                    send_mail('Enquiry Received',                                               #Subject Email
-                            f'Name: {name}\nPhone: {phone}\nEmail: {email}\nMessage: {message}',    #Message Email
-                            email_host_user,                                                        #from email
-                            [email_host_user,],                                                    #To email
-                            fail_silently=False,
+                    email_thread = EmailThread(
+                            subject='Enquiry Received',
+                            message=f'Name: {name}\nPhone: {phone}\nEmail: {email}\nMessage: {message}',
+                            from_email=email_host_user,
+                            recipient_list=[email_host_user],
                             auth_user=email_host_user,
-                            auth_password=email_host_password,
+                            auth_password=email_host_password
                         )
+                    email_thread.start()
                 except Exception as e:
                     print(e)
                     pass
@@ -190,6 +191,31 @@ def GalleryPage(request):
 from django.http import JsonResponse
 from django.core.mail import send_mail
 import re
+import threading
+
+class EmailThread(threading.Thread):
+    def __init__(self, subject, message, from_email, recipient_list, auth_user, auth_password):
+        self.subject = subject
+        self.message = message
+        self.from_email = from_email
+        self.recipient_list = recipient_list
+        self.auth_user = auth_user
+        self.auth_password = auth_password
+        threading.Thread.__init__(self)
+
+    def run(self):
+        try:
+            send_mail(
+                self.subject,
+                self.message,
+                self.from_email,
+                self.recipient_list,
+                fail_silently=False,
+                auth_user=self.auth_user,
+                auth_password=self.auth_password,
+            )
+        except Exception as e:
+            print(f"Email sending failed: {e}")
 
 def ContactPage(request):
     context = getGlobalContext(request)
@@ -206,25 +232,32 @@ def ContactPage(request):
             return JsonResponse({'success': False, 'message': 'Invalid phone number.<br>Please enter a valid 10-digit phone number.', 'color_class': 'error-toast'})
         
         new_email=ContactForm(email=email,name=name,message=message,phone=phone, subject=subject)
+        new_email.save()
 
         try:
-            new_email.save()
             email_password = Company.objects.all().last()
             if email_password:
                 email_host_user = email_password.gmail_email
                 email_host_password = email_password.password
                 try:
-                    send_mail('Enquiry Received',                                               #Subject Email
-                            f'Name: {name}\nPhone: {phone}\nEmail: {email}\nMessage: {message}',    #Message Email
-                            email_host_user,                                                        #from email
-                            [email_host_user,],                                                    #To email
-                            fail_silently=False,
+                    email_password = Company.objects.all().last()
+                    if email_password:
+                        email_host_user = email_password.gmail_email
+                        email_host_password = email_password.password
+
+                        email_thread = EmailThread(
+                            subject='Enquiry Received',
+                            message=f'Name: {name}\nPhone: {phone}\nEmail: {email}\nMessage: {message}',
+                            from_email=email_host_user,
+                            recipient_list=[email_host_user],
                             auth_user=email_host_user,
-                            auth_password=email_host_password,
+                            auth_password=email_host_password
                         )
+                        email_thread.start()
                 except Exception as e:
                     print(e)
-                    pass
+
+
             return JsonResponse({'success': True, 'message': 'Your request has been received!<br>We will get in touch with you shortly.', 'color_class' : 'success-toast'})
         except Exception as e:
             print(e)
