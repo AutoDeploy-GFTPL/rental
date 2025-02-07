@@ -1,0 +1,285 @@
+{% extends 'base.html' %}
+
+{% block metatags %}
+<title>{% if seo_contact.meta_title %}{{seo_contact.meta_title}}{% else %}{{company.company_name}}{% endif %}</title>
+<meta name="description" content="{{ seo_contact.meta_description }}">
+<meta name="keywords" content="{{ seo_contact.meta_keywords }}">
+<link rel="canonical" href="{{ seo_contact.canonical_tag }}">
+{% endblock metatags %}
+
+{% block style %}
+
+{% endblock style %}
+
+{% block script %}
+
+{% endblock script %}
+
+{% block content %}
+
+{% include 'include/banner.html' %}
+
+
+    <!-- ====== Map Area====== --> 
+    <div class="map-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="heading-content-one">
+                        {% if contact_heading %}
+                        <h5>{{contact_heading.title}}</h5>
+                        <p>{{contact_heading.description}}</p>
+                        {% else %}
+                        <h5>Find Our location</h5>
+                        <h2 class="title default-text-gradient">Map &amp; Directions</h2>
+                        <p>Find out how to find us from your current location</p>
+                        {% endif %}
+                            
+                    </div><!-- /.about-heading-content -->
+                    <div class="map-content">
+                        
+                        {% if company.google_map_url %}
+                        <iframe height="550" src="{{company.google_map_url}}" allowfullscreen="allowfullscreen"></iframe>
+                        {% else %}
+                        <iframe height="550" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyC871wKM6aoCLSV_pT3xBVsYzNGXaDh7Pw&q=121King+St,Melbourne+VIC+3000,Australia" allowfullscreen="allowfullscreen"></iframe>
+                        {% endif %}
+                            
+                    </div><!-- /.map-content -->
+                </div><!-- /.col-md-12 -->
+            </div><!-- /.row -->
+        </div><!-- /.container -->
+    </div><!-- /.map-content-area -->
+
+    <!-- ====== Contact Us Area ====== --> 
+    <div class="contact-us-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="heading-content-one">
+                        <!-- <h2 class="title default-text-gradient">Contact us<br/> live</h2> -->
+                    </div><!-- /.heading-content-one -->
+                </div><!-- /.col-md-12 -->
+            </div><!-- /.row -->
+            <div class="row">
+
+                
+                {% if company %}                    
+                <div class="col-md-4">
+                    <div class="contact-us-content-left">
+                        <div class="contact">
+                            
+                            {% if company %}
+                            <h4><i class="fa fa-map-marker"></i>Address</h4>
+                            <p>{{company.address}}</p>
+                            {% else %}
+                            <h4><i class="fa fa-map-marker"></i>Address</h4>
+                            <p>121 King St, Melbourne VIC <br> 3000, Australia</p>
+                            {% endif %}
+                                
+                        </div><!-- /.contact -->
+                    
+                        <div class="contact">
+                            <h4><i class="fa fa-envelope"></i>Mall</h4>
+                            
+                            {% if company %}
+                            <p>{{company.email}}</p>
+                            {% else %}
+                            <p>yourmail@gmail.com <br> houserentmail@gmail.com</p>
+                            {% endif %}
+                                
+                        </div><!-- /.contact -->
+                
+                    
+                        <div class="contact">
+                            <h4><i class="fa fa-volume-control-phone"></i>Call</h4>
+                            
+                            {% if company %}
+                            <p>{{company.country_code}} {{company.phone}} <br> {{company.country_code}} {{company.alternative_phone}}</p>
+                            {% else %}
+                            <p>{{company.country_code}} {{company.phone}} <br> {{company.country_code}} {{company.alternative_phone}}</p>
+                            {% endif %}
+                                
+                        </div><!-- /.contact -->
+                    
+                        <div class="contact">
+                            <h4><i class="fa fa-user"></i>Social account</h4>
+                            {% if fb or ig or li or tw or ytube or telg or whatsapp or threads %}
+                            <div class="social-icon">
+                                {% if fb %}
+                                        <a href="{{fb.url}}"><i class="fab fa-facebook-f"></i></a>
+                                {% endif %}
+
+                                {% if ig %}
+                                        <a href="{{ig.url}}"><i class="fab fa-instagram"></i></a>
+                                {% endif %}
+                                
+                                {% if li %}
+                                        <a href="{{li.url}}"><i class="fab fa-linkedin"></i></a>
+                                {% endif %}
+                                
+                                {% if tw %}
+                                        <a href="{{tw.url}}"><i class="fab fa-twitter"></i></a>
+                                {% endif %}
+                                
+                                {% if ytube %}
+                                        <a href="{{ytube.url}}"><i class="fab fa-youtube"></i></a>
+                                {% endif %}
+                                    
+                                {% if telg %}                                        
+                                        <a href="{{telg.url}}"><i class="fab fa-telegram"></i></a>
+                                {% endif %}
+                                
+                                {% if whatsapp %}                                        
+                                        <a href="{{whatsapp.url}}"><i class="fab fa-whatsapp"></i></a>
+                                {% endif %}
+
+                                {% if threads %}                                        
+                                        <a href="{{threads.url}}"><i class="fa-brands fa-threads"></i></a>
+                                {% endif %}
+                            </div><!-- /.Social-icon -->
+                            {% else %}
+                            <div class="social-icon">
+                                <a href="#"><i class="fa fa-facebook"></i></a>
+                                <a href="#"><i class="fa fa-twitter"></i></a>
+                                <a href="#"><i class="fa fa-instagram"></i></a>
+                                <a href="#"><i class="fa fa-google-plus"></i></a>
+                            </div><!-- /.Social-icon -->
+                            {% endif %}
+                        </div><!-- /.contact -->
+                    </div><!-- /.contactus-content-left -->
+                </div><!-- /.col-md-4 -->
+                {% else %}
+                <div class="col-md-4">
+                    <div class="contact-us-content-left">
+                        <div class="contact">
+                            <h4><i class="fa fa-map-marker"></i>Address</h4>
+                            <p>121 King St, Melbourne VIC <br> 3000, Australia</p>
+                        </div><!-- /.contact -->
+                    
+                        <div class="contact">
+                            <h4><i class="fa fa-envelope"></i>Mall</h4>
+                            <p>yourmail@gmail.com <br> houserentmail@gmail.com</p>
+                        </div><!-- /.contact -->
+                
+                    
+                        <div class="contact">
+                            <h4><i class="fa fa-volume-control-phone"></i>Call</h4>
+                            <p>+88 0215469875 <br> 666 35874692050</p>
+                        </div><!-- /.contact -->
+                    
+                        <div class="contact">
+                            <h4><i class="fa fa-user"></i>Social account</h4>
+                            <div class="social-icon">
+                                <a href="#"><i class="fa fa-facebook"></i></a>
+                                <a href="#"><i class="fa fa-twitter"></i></a>
+                                <a href="#"><i class="fa fa-instagram"></i></a>
+                                <a href="#"><i class="fa fa-google-plus"></i></a>
+                            </div><!-- /.Social-icon -->
+                        </div><!-- /.contact -->
+                    </div><!-- /.contactus-content-left -->
+                </div><!-- /.col-md-4 -->
+                {% endif %}
+                
+                <div class="col-md-8">
+                    <div class="contact-us-content-right">
+
+
+                        <form action="{% url 'contact' %}" id="contact_form" >
+                            <h3>Have a question</h3>
+                            <img src="../static/assets/images/envelope.jpg" alt="envelope" />
+                            <div class="input-content clearfix">
+                                <h4>Send Us A email</h4>
+                                <div class="row">
+
+                                    <div class="col-sm-6">
+                                        <input type="text" placeholder="Name*" class="form-control" name="name" id="name">
+                                    </div><!-- /.col-sm-6 -->
+                                    <div class="col-sm-6">
+                                        <input type="email" placeholder="Email*" class="form-control Email" name="email" id="email">
+                                    </div><!-- /.col-sm-6 -->
+                                    <div class="col-md-6">
+                                        <input type="text" placeholder="Subject*" class="form-control" name="subject" id="subject">
+                                    </div><!-- /.col-md-12 -->
+                                    <div class="col-md-6">
+                                        <input type="text" placeholder="Phone*" class="form-control" name="phone" id="phone">
+                                    </div><!-- /.col-md-12 -->
+                                    <div class="col-md-12">
+                                        <textarea rows="2" cols="80" placeholder="Message*" id="message" name="message"></textarea>
+                                    </div><!-- /.col-md-12 -->
+
+                                </div><!-- /.row -->
+                                <div class="subimt-button clearfix">
+                                    <input type="submit" value="Submit" class="submit default-template-gradient">
+                                </div><!-- /.subimt -->
+                            </div><!-- /.input-content -->
+                        </form>
+
+
+                    </div><!-- /.contactus-content-right -->
+                </div><!-- /.col-md-8 -->
+            </div><!-- /.row -->
+        </div><!-- /.container -->
+    </div><!-- /.contact-us-area -->
+
+    <div class="text-start" style="text-align: start;">
+        <div id="contact_id"></div>
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        function showToast(message, colorClass, toaster_id) {
+            let toast_id = document.getElementById(toaster_id);
+            toast_id.innerHTML = '';
+    
+            const toastDiv = document.createElement("div");
+            toastDiv.innerHTML = message;
+            toastDiv.classList.add(colorClass);
+    
+            toast_id.appendChild(toastDiv);
+            setTimeout(function () {
+                toastDiv.remove();
+            }, 3000);
+        }
+    
+        $(document).on('submit', '#contact_form', function (e) {
+            e.preventDefault();
+            $.ajaxSetup({
+                headers: {
+                    "X-CSRFToken": getCookie("csrftoken")
+                },
+            });
+    
+            $.ajax({
+                type: 'POST',
+                url: "{% url 'contact' %}",
+                data: $(this).serialize(),
+                success: function (response) {
+                    showToast(response.message, response.color_class, 'contact_id');
+                    if (response.color_class === 'success-toast') {
+                        $('#name').val('');
+                        $('#email').val('');
+                        $('#phone').val('');
+                        $('#subject').val('');
+                        $('#message').val('');
+    
+                    }
+                },
+                error: function () {
+                    showToast('Something went wrong! Please try again.', 'error-toast', 'contact_id');
+                }
+            });
+        });
+        function getCookie(cname) {
+            var name = cname + "=";
+            var ca = document.cookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) == ' ') c = c.substring(1);
+                if (c.indexOf(name) == 0)
+                    return c.substring(name.length, c.length);
+            }
+            return "";
+        }
+    </script>
+    
+{% endblock content %}

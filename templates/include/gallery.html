@@ -1,0 +1,169 @@
+
+{% if not gallery and not gallery_section %}
+    <div class="gallery-area">
+        <div class="container-fluid">
+            <div class="container-large-device">
+                <div class="row">
+                    <div class="col-md-7">
+                        <div class="gallery-left-content">
+                            <div class="row">
+                                <div class="col-md-4 col-sm-6 col-xs-6">
+                                    <a class="image-pop-up" href="../static/assets/images/gallery/gallery-one.png">
+                                        <img src="../static/assets/images/gallery/gallery-one.png" alt="gallery" />
+                                    </a>
+                                </div><!-- /.col-md-4 -->
+                                <div class="col-md-4 col-sm-6 col-xs-6">
+                                    <a class="image-pop-up" href="../static/assets/images/gallery/gallery-two.png">
+                                        <img src="../static/assets/images/gallery/gallery-two.png" alt="gallery" />
+                                    </a>
+                                </div><!-- /.col-md-4 -->
+                                <div class="clearfix visible-xs-block"></div>
+                                <div class="col-md-4 col-sm-6 col-xs-6">
+                                    <a class="image-pop-up" href="../static/assets/images/gallery/gallery-three.png">
+                                        <img src="../static/assets/images/gallery/gallery-three.png" alt="gallery" />
+                                    </a>
+                                </div><!-- /.col-md-4 -->
+                                <div class="col-md-4 col-sm-6 col-xs-6">
+                                    <a class="image-pop-up" href="../static/assets/images/gallery/gallery-four.png">
+                                        <img src="../static/assets/images/gallery/gallery-four.png" alt="gallery" />
+                                    </a>
+                                </div><!-- /.col-md-4 -->
+                                <div class="clearfix visible-xs-block"></div>
+                                <div class="col-md-4 col-sm-6 col-xs-6">
+                                    <a class="image-pop-up" href="../static/assets/images/gallery/gallery-five.png">
+                                        <img src="../static/assets/images/gallery/gallery-five.png" alt="gallery" />
+                                    </a>
+                                </div><!-- /.col-md-4 -->
+                                <div class="col-md-4 col-sm-6 col-xs-6">
+                                    <a class="image-pop-up" href="#">
+                                        <img src="../static/assets/images/gallery/gallery-six.png" alt="gallery" />
+                                    </a>
+                                </div><!-- /.col-md-4 -->
+                            </div><!-- /.row -->
+                        </div><!-- /.left-content -->
+                    </div><!-- /.col-md-7 -->
+                    <div class="col-md-5">
+                        <div class="gallery-right-content">
+                            
+                            {% if gallery_heading %}
+                            <h2>{{gallery_heading.title}}</h2>
+                            <p>{{gallery_heading.description}}</p>
+                            <a href="{% url 'gallery' %}" class="button nevy-button">All Photos &amp; Video</a>
+                            {% else %}
+                            <h2>Our<br/> Photo Gallery</h2>
+                            <p>Amorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vitae nibh nisl. Cras etitikis mauris eget lorem ultricies ferme ntum a inti diam. Morbi mollis pellen tesque offs aiug ueia nec rhoncus. Nam ute ultricies.</p>
+                            <a href="{% url 'gallery' %}" class="button nevy-button">All Photos &amp; Video</a>
+                            {% endif %}
+                                
+                        </div><!-- /.right-content -->
+                    </div><!-- /.col-md-5 -->
+                </div><!-- /.row -->
+            </div><!-- /.container-large-device  -->
+        </div><!-- /.container-fluid-->
+    </div>
+{% elif gallery and gallery_section and gallery_section.show is True %}
+<div class="gallery-area">
+    <div class="container-fluid">
+        <div class="container-large-device">
+            <div class="row">
+                <div class="col-md-7">
+                    <div class="gallery-left-content">
+                        <div class="row">
+
+                            
+                            {% for x in gallery|slice:"6" %}
+                                <div class="col-md-4 col-sm-6 col-xs-6">
+                                    <a class="image-pop-up" href="{{x.image.url}}">
+                                        <img src="{{x.image.url}}" alt="gallery" />
+                                    </a>
+                                </div>
+                            {% endfor %}
+                                
+
+                        </div><!-- /.row -->
+                    </div><!-- /.left-content -->
+                </div><!-- /.col-md-7 -->
+                <div class="col-md-5">
+                    <div class="gallery-right-content">
+                        
+                        {% if gallery_heading %}
+                        <h2>{{gallery_heading.title}}</h2>
+                        <p>{{gallery_heading.description}}</p>
+                        <a href="{% url 'gallery' %}" class="button nevy-button">All Photos &amp; Video</a>
+                        {% else %}
+                        <h2>Our<br/> Photo Gallery</h2>
+                        <p>Amorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vitae nibh nisl. Cras etitikis mauris eget lorem ultricies ferme ntum a inti diam. Morbi mollis pellen tesque offs aiug ueia nec rhoncus. Nam ute ultricies.</p>
+                        <a href="{% url 'gallery' %}" class="button nevy-button">All Photos &amp; Video</a>
+                        {% endif %}
+                            
+                    </div><!-- /.right-content -->
+                </div><!-- /.col-md-5 -->
+            </div><!-- /.row -->
+        </div><!-- /.container-large-device  -->
+    </div><!-- /.container-fluid-->
+</div>
+{% elif not gallery and gallery_section and gallery_section.show is True %}
+<div class="gallery-area">
+    <div class="container-fluid">
+        <div class="container-large-device">
+            <div class="row">
+                <div class="col-md-7">
+                    <div class="gallery-left-content">
+                        <div class="row">
+                            <div class="col-md-4 col-sm-6 col-xs-6">
+                                <a class="image-pop-up" href="../static/assets/images/gallery/gallery-one.png">
+                                    <img src="../static/assets/images/gallery/gallery-one.png" alt="gallery" />
+                                </a>
+                            </div><!-- /.col-md-4 -->
+                            <div class="col-md-4 col-sm-6 col-xs-6">
+                                <a class="image-pop-up" href="../static/assets/images/gallery/gallery-two.png">
+                                    <img src="../static/assets/images/gallery/gallery-two.png" alt="gallery" />
+                                </a>
+                            </div><!-- /.col-md-4 -->
+                            <div class="clearfix visible-xs-block"></div>
+                            <div class="col-md-4 col-sm-6 col-xs-6">
+                                <a class="image-pop-up" href="../static/assets/images/gallery/gallery-three.png">
+                                    <img src="../static/assets/images/gallery/gallery-three.png" alt="gallery" />
+                                </a>
+                            </div><!-- /.col-md-4 -->
+                            <div class="col-md-4 col-sm-6 col-xs-6">
+                                <a class="image-pop-up" href="../static/assets/images/gallery/gallery-four.png">
+                                    <img src="../static/assets/images/gallery/gallery-four.png" alt="gallery" />
+                                </a>
+                            </div><!-- /.col-md-4 -->
+                            <div class="clearfix visible-xs-block"></div>
+                            <div class="col-md-4 col-sm-6 col-xs-6">
+                                <a class="image-pop-up" href="../static/assets/images/gallery/gallery-five.png">
+                                    <img src="../static/assets/images/gallery/gallery-five.png" alt="gallery" />
+                                </a>
+                            </div><!-- /.col-md-4 -->
+                            <div class="col-md-4 col-sm-6 col-xs-6">
+                                <a class="image-pop-up" href="#">
+                                    <img src="../static/assets/images/gallery/gallery-six.png" alt="gallery" />
+                                </a>
+                            </div><!-- /.col-md-4 -->
+                        </div><!-- /.row -->
+                    </div><!-- /.left-content -->
+                </div><!-- /.col-md-7 -->
+                <div class="col-md-5">
+                    <div class="col-md-5">
+                        <div class="gallery-right-content">
+                            
+                            {% if gallery_heading %}
+                            <h2>{{gallery_heading.title}}</h2>
+                            <p>{{gallery_heading.description}}</p>
+                            <a href="{% url 'gallery' %}" class="button nevy-button">All Photos &amp; Video</a>
+                            {% else %}
+                            <h2>Our<br/> Photo Gallery</h2>
+                            <p>Amorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vitae nibh nisl. Cras etitikis mauris eget lorem ultricies ferme ntum a inti diam. Morbi mollis pellen tesque offs aiug ueia nec rhoncus. Nam ute ultricies.</p>
+                            <a href="{% url 'gallery' %}" class="button nevy-button">All Photos &amp; Video</a>
+                            {% endif %}
+                                
+                        </div><!-- /.right-content -->
+                </div><!-- /.col-md-5 -->
+            </div><!-- /.row -->
+        </div><!-- /.container-large-device  -->
+    </div><!-- /.container-fluid-->
+</div>
+{% endif %}
+    

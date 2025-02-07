@@ -1,0 +1,36 @@
+
+    <!-- ====== Page Header ====== --> 
+    <div class="page-header default-template-gradient" {% if banner %}style="background-image: url({{banner.image.url}}); width: 1519px; height:233px;"{% endif %}>
+        <div class="container" >
+            <div class="row">
+                <div class="col-md-12">            
+                    
+                    {% if banner %}
+                    <h2 class="page-title">{{banner.title}}</h2>
+                    <p class="page-description">{{banner.description|safe}}</p>        
+                    {% else %}
+                    <h2 class="page-title">House</h2>
+                    <p class="page-description">All Apartment List</p>        
+                    {% endif %}
+                            
+                </div><!-- /.col-md-12 -->
+            </div><!-- /.row-->
+        </div><!-- /.container-fluid -->           
+    </div><!-- /.page-header -->
+
+        <!-- ====== Breadcrumbs Area ====== --> 
+        <div class="breadcrumbs-area bg">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="breadcrumbs">
+                            <span class="first-item">
+                             <a href="{% url 'index' %}">Home</a></span>
+                            <span class="separator">&gt;</span>
+                            <span class="last-item">{{banner_nav}}</span>
+                        </div>
+                    </div><!-- /.col-md-12 -->
+                </div><!-- /.row -->
+            </div><!-- /.container -->
+        </div><!-- /.breadcrumbs-area -->
+    

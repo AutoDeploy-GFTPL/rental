@@ -1,0 +1,322 @@
+{% extends 'base.html' %}
+
+{% block metatags %}
+<title>{% if seo_gallery.meta_title %}{{seo_gallery.meta_title}}{% else %}{{company.company_name}}{% endif %}</title>
+<meta name="description" content="{{ seo_gallery.meta_description }}">
+<meta name="keywords" content="{{ seo_gallery.meta_keywords }}">
+<link rel="canonical" href="{{ seo_gallery.canonical_tag }}">
+{% endblock metatags %}
+
+{% block style %}
+
+{% endblock style %}
+
+{% block script %}
+
+{% endblock script %}
+
+{% block content %}
+
+
+{% include 'include/banner.html' %}
+{% if not gallery and not gallery_section %}
+	<!-- ====== Photo Gallery Area ====== --> 
+	<div class="photo-gallery-area">
+	    <div class="container">
+	        <div class="col-md-12">
+	            <div class="heading-content-two text-center">
+	                <h2 class="title default-text-gradient">Photo Gallery</h2>
+	            </div><!-- /.photo-heading-content -->
+	        </div><!-- /.col-md-12 -->
+	        <div class="row">
+	            <div class="col-md-3 col-sm-6 col-xs-6">
+                    <div class="gallery-image-content">
+                        <img src="../static/assets/images/gallery/gallery-1.jpg" alt="blog" />
+                        <div class="overlay-background gradient-transparent"> 
+                            <a href="../static/assets/images/gallery/gallery-1.jpg" class="image-pop-up">
+                                <span><i class="fa fa-picture-o"></i>Apartment</span>
+                            </a><!-- /.hover-content -->
+                        </div><!-- /.hover-content -->
+
+                    </div><!-- /.image-content -->
+	            </div><!-- /.col-md-3 -->
+	            <div class="col-md-3 col-sm-6 col-xs-6">
+                    <div class="gallery-image-content">
+                        <img src="../static/assets/images/gallery/gallery-2.jpg" alt="blog" />
+                        <div class="overlay-background gradient-transparent"> 
+                            <a href="../static/assets/images/gallery/gallery-2.jpg" class="image-pop-up">
+                                <span><i class="fa fa-picture-o"></i>Apartment</span>
+                            </a><!-- /.hover-content -->
+                        </div><!-- /.hover-content -->
+                    </div><!-- /.image-content -->
+	            </div><!-- /.col-md-3 -->
+	            <div class="col-md-3 col-sm-6 col-xs-6">
+                    <div class="gallery-image-content">
+                        <img src="../static/assets/images/gallery/gallery-3.jpg" alt="blog" />
+                        <div class="overlay-background gradient-transparent"> 
+                            <a href="../static/assets/images/gallery/gallery-3.jpg" class="image-pop-up">
+                                <span><i class="fa fa-picture-o"></i>Apartment</span>
+                            </a><!-- /.hover-content -->
+                        </div><!-- /.hover-content -->
+                    </div><!-- /.image-content -->
+	            </div><!-- /.col-md-3 -->
+	            <div class="col-md-3 col-sm-6 col-xs-6">
+                    <div class="gallery-image-content">
+                        <img src="../static/assets/images/gallery/gallery-4.jpg" alt="blog" />
+                        <div class="overlay-background gradient-transparent"> 
+                            <a href="../static/assets/images/gallery/gallery-4.jpg" class="image-pop-up">
+                                <span><i class="fa fa-picture-o"></i>Apartment</span>
+                            </a><!-- /.hover-content -->
+                        </div><!-- /.hover-content -->
+                    </div><!-- /.image-content -->
+	            </div><!-- /.col-md-3 -->
+	            <div class="clearfix"></div>
+	            <div class="col-md-3 col-sm-6 col-xs-6">
+                    <div class="gallery-image-content">
+                        <img src="../static/assets/images/gallery/gallery-5.jpg" alt="blog" />
+                        <div class="overlay-background gradient-transparent"> 
+                            <a href="../static/assets/images/gallery/gallery-5.jpg" class="image-pop-up">
+                                <span><i class="fa fa-picture-o"></i>Apartment</span>
+                            </a><!-- /.hover-content -->
+                        </div><!-- /.hover-content -->
+                    </div><!-- /.image-content -->
+	            </div><!-- /.col-md-3 -->
+	             <div class="col-md-3 col-sm-6 col-xs-6">
+                    <div class="gallery-image-content">
+                        <img src="../static/assets/images/gallery/gallery-6.jpg" alt="blog" />
+                        <div class="overlay-background gradient-transparent"> 
+                            <a href="../static/assets/images/gallery/gallery-6.jpg" class="image-pop-up">
+                                <span><i class="fa fa-picture-o"></i>Apartment</span>
+                            </a><!-- /.hover-content -->
+                        </div><!-- /.hover-content -->
+                    </div><!-- /.image-content -->
+	            </div><!-- /.col-md-3 -->
+	            <div class="col-md-3 col-sm-6 col-xs-6">
+                    <div class="gallery-image-content">
+                        <img src="../static/assets/images/gallery/gallery-7.jpg" alt="blog" />
+                        <div class="overlay-background gradient-transparent"> 
+                            <a href="../static/assets/images/gallery/gallery-7.jpg" class="image-pop-up">
+                                <span><i class="fa fa-picture-o"></i>Apartment</span>
+                            </a><!-- /.hover-content -->
+                        </div><!-- /.hover-content -->
+                    </div><!-- /.image-content -->
+	            </div><!-- /.col-md-3 -->
+	            <div class="col-md-3 col-sm-6 col-xs-6">
+                    <div class="gallery-image-content">
+                        <img src="../static/assets/images/gallery/gallery-8.jpg" alt="blog" />
+                        <div class="overlay-background gradient-transparent"> 
+                            <a href="../static/assets/images/gallery/gallery-8.jpg" class="image-pop-up">
+                                <span><i class="fa fa-picture-o"></i>Apartment</span>
+                            </a><!-- /.hover-content -->
+                        </div><!-- /.hover-content -->
+                    </div><!-- /.image-content -->
+	            </div><!-- /.col-md-3 -->
+	            <div class="clearfix"></div>
+	            <div class="col-md-3 col-sm-6 col-xs-6">
+                    <div class="gallery-image-content">
+                        <img src="../static/assets/images/gallery/gallery-9.jpg" alt="blog" />
+                        <div class="overlay-background gradient-transparent"> 
+                            <a href="../static/assets/images/gallery/gallery-9.jpg" class="image-pop-up">
+                                <span><i class="fa fa-picture-o"></i>Apartment</span>
+                            </a><!-- /.hover-content -->
+                        </div><!-- /.hover-content -->
+                    </div><!-- /.image-content -->
+	            </div><!-- /.col-md-3 -->
+	            <div class="col-md-3 col-sm-6 col-xs-6">
+                    <div class="gallery-image-content">
+                        <img src="../static/assets/images/gallery/gallery-10.jpg" alt="blog" />
+                        <div class="overlay-background gradient-transparent"> 
+                            <a href="../static/assets/images/gallery/gallery-10.jpg" class="image-pop-up">
+                                <span><i class="fa fa-picture-o"></i>Apartment</span>
+                            </a><!-- /.hover-content -->
+                        </div><!-- /.hover-content -->
+                    </div><!-- /.image-content -->
+	            </div><!-- /.col-md-3 -->
+	            <div class="col-md-3 col-sm-6 col-xs-6">
+                    <div class="gallery-image-content">
+                        <img src="../static/assets/images/gallery/gallery-11.jpg" alt="blog" />
+                        <div class="overlay-background gradient-transparent"> 
+                            <a href="../static/assets/images/gallery/gallery-11.jpg" class="image-pop-up">
+                                <span><i class="fa fa-picture-o"></i>Apartment</span>
+                            </a><!-- /.hover-content -->
+                        </div><!-- /.hover-content -->
+                    </div><!-- /.image-content -->
+	            </div><!-- /.col-md-3 -->
+	            <div class="col-md-3 col-sm-6 col-xs-6">
+                    <div class="gallery-image-content">
+                        <img src="../static/assets/images/gallery/gallery-12.jpg" alt="blog" />
+                        <div class="overlay-background gradient-transparent"> 
+                            <a href="../static/assets/images/gallery/gallery-12.jpg" class="image-pop-up">
+                               <span><i class="fa fa-picture-o"></i>Apartment</span>
+                            </a><!-- /.hover-content -->
+                        </div><!-- /.hover-content -->
+                    </div><!-- /.image-content -->
+	            </div><!-- /.col-md-3 -->
+	        </div><!-- /.row -->   
+	        <!-- <a href="#" class="button nevy-button button-radius default-template-gradient">load more</a> -->
+	    </div><!-- /.container -->
+	</div><!-- /.photo-gallery-area-->
+{% elif gallery and gallery_section and gallery_section.show is True %}
+	<!-- ====== Photo Gallery Area ====== --> 
+	<div class="photo-gallery-area">
+	    <div class="container">
+	        <div class="col-md-12">
+	            <div class="heading-content-two text-center">
+	                <h2 class="title default-text-gradient">Photo Gallery</h2>
+	            </div><!-- /.photo-heading-content -->
+	        </div><!-- /.col-md-12 -->
+
+
+	        <div class="row">
+                
+	            {% for x in gallery %}
+                    <div class="col-md-4 col-sm-6 col-xs-6">
+                        <a class="image-pop-up" href="{{x.image.url}}">
+                            <img src="{{x.image.url}}" alt="gallery" />
+                        </a>
+                    </div>
+                {% endfor %}
+
+	        </div><!-- /.row -->   
+	        <!-- <a href="#" class="button nevy-button button-radius default-template-gradient">load more</a> -->
+	    </div><!-- /.container -->
+	</div><!-- /.photo-gallery-area-->
+{% elif not gallery and gallery_section and gallery_section.show is True %}
+	<!-- ====== Photo Gallery Area ====== --> 
+	<div class="photo-gallery-area">
+	    <div class="container">
+	        <div class="col-md-12">
+	            <div class="heading-content-two text-center">
+	                <h2 class="title default-text-gradient">Photo Gallery</h2>
+	            </div><!-- /.photo-heading-content -->
+	        </div><!-- /.col-md-12 -->
+	        <div class="row">
+	            <div class="col-md-3 col-sm-6 col-xs-6">
+                    <div class="gallery-image-content">
+                        <img src="../static/assets/images/gallery/gallery-1.jpg" alt="blog" />
+                        <div class="overlay-background gradient-transparent"> 
+                            <a href="../static/assets/images/gallery/gallery-1.jpg" class="image-pop-up">
+                                <span><i class="fa fa-picture-o"></i>Apartment</span>
+                            </a><!-- /.hover-content -->
+                        </div><!-- /.hover-content -->
+
+                    </div><!-- /.image-content -->
+	            </div><!-- /.col-md-3 -->
+	            <div class="col-md-3 col-sm-6 col-xs-6">
+                    <div class="gallery-image-content">
+                        <img src="../static/assets/images/gallery/gallery-2.jpg" alt="blog" />
+                        <div class="overlay-background gradient-transparent"> 
+                            <a href="../static/assets/images/gallery/gallery-2.jpg" class="image-pop-up">
+                                <span><i class="fa fa-picture-o"></i>Apartment</span>
+                            </a><!-- /.hover-content -->
+                        </div><!-- /.hover-content -->
+                    </div><!-- /.image-content -->
+	            </div><!-- /.col-md-3 -->
+	            <div class="col-md-3 col-sm-6 col-xs-6">
+                    <div class="gallery-image-content">
+                        <img src="../static/assets/images/gallery/gallery-3.jpg" alt="blog" />
+                        <div class="overlay-background gradient-transparent"> 
+                            <a href="../static/assets/images/gallery/gallery-3.jpg" class="image-pop-up">
+                                <span><i class="fa fa-picture-o"></i>Apartment</span>
+                            </a><!-- /.hover-content -->
+                        </div><!-- /.hover-content -->
+                    </div><!-- /.image-content -->
+	            </div><!-- /.col-md-3 -->
+	            <div class="col-md-3 col-sm-6 col-xs-6">
+                    <div class="gallery-image-content">
+                        <img src="../static/assets/images/gallery/gallery-4.jpg" alt="blog" />
+                        <div class="overlay-background gradient-transparent"> 
+                            <a href="../static/assets/images/gallery/gallery-4.jpg" class="image-pop-up">
+                                <span><i class="fa fa-picture-o"></i>Apartment</span>
+                            </a><!-- /.hover-content -->
+                        </div><!-- /.hover-content -->
+                    </div><!-- /.image-content -->
+	            </div><!-- /.col-md-3 -->
+	            <div class="clearfix"></div>
+	            <div class="col-md-3 col-sm-6 col-xs-6">
+                    <div class="gallery-image-content">
+                        <img src="../static/assets/images/gallery/gallery-5.jpg" alt="blog" />
+                        <div class="overlay-background gradient-transparent"> 
+                            <a href="../static/assets/images/gallery/gallery-5.jpg" class="image-pop-up">
+                                <span><i class="fa fa-picture-o"></i>Apartment</span>
+                            </a><!-- /.hover-content -->
+                        </div><!-- /.hover-content -->
+                    </div><!-- /.image-content -->
+	            </div><!-- /.col-md-3 -->
+	             <div class="col-md-3 col-sm-6 col-xs-6">
+                    <div class="gallery-image-content">
+                        <img src="../static/assets/images/gallery/gallery-6.jpg" alt="blog" />
+                        <div class="overlay-background gradient-transparent"> 
+                            <a href="../static/assets/images/gallery/gallery-6.jpg" class="image-pop-up">
+                                <span><i class="fa fa-picture-o"></i>Apartment</span>
+                            </a><!-- /.hover-content -->
+                        </div><!-- /.hover-content -->
+                    </div><!-- /.image-content -->
+	            </div><!-- /.col-md-3 -->
+	            <div class="col-md-3 col-sm-6 col-xs-6">
+                    <div class="gallery-image-content">
+                        <img src="../static/assets/images/gallery/gallery-7.jpg" alt="blog" />
+                        <div class="overlay-background gradient-transparent"> 
+                            <a href="../static/assets/images/gallery/gallery-7.jpg" class="image-pop-up">
+                                <span><i class="fa fa-picture-o"></i>Apartment</span>
+                            </a><!-- /.hover-content -->
+                        </div><!-- /.hover-content -->
+                    </div><!-- /.image-content -->
+	            </div><!-- /.col-md-3 -->
+	            <div class="col-md-3 col-sm-6 col-xs-6">
+                    <div class="gallery-image-content">
+                        <img src="../static/assets/images/gallery/gallery-8.jpg" alt="blog" />
+                        <div class="overlay-background gradient-transparent"> 
+                            <a href="../static/assets/images/gallery/gallery-8.jpg" class="image-pop-up">
+                                <span><i class="fa fa-picture-o"></i>Apartment</span>
+                            </a><!-- /.hover-content -->
+                        </div><!-- /.hover-content -->
+                    </div><!-- /.image-content -->
+	            </div><!-- /.col-md-3 -->
+	            <div class="clearfix"></div>
+	            <div class="col-md-3 col-sm-6 col-xs-6">
+                    <div class="gallery-image-content">
+                        <img src="../static/assets/images/gallery/gallery-9.jpg" alt="blog" />
+                        <div class="overlay-background gradient-transparent"> 
+                            <a href="../static/assets/images/gallery/gallery-9.jpg" class="image-pop-up">
+                                <span><i class="fa fa-picture-o"></i>Apartment</span>
+                            </a><!-- /.hover-content -->
+                        </div><!-- /.hover-content -->
+                    </div><!-- /.image-content -->
+	            </div><!-- /.col-md-3 -->
+	            <div class="col-md-3 col-sm-6 col-xs-6">
+                    <div class="gallery-image-content">
+                        <img src="../static/assets/images/gallery/gallery-10.jpg" alt="blog" />
+                        <div class="overlay-background gradient-transparent"> 
+                            <a href="../static/assets/images/gallery/gallery-10.jpg" class="image-pop-up">
+                                <span><i class="fa fa-picture-o"></i>Apartment</span>
+                            </a><!-- /.hover-content -->
+                        </div><!-- /.hover-content -->
+                    </div><!-- /.image-content -->
+	            </div><!-- /.col-md-3 -->
+	            <div class="col-md-3 col-sm-6 col-xs-6">
+                    <div class="gallery-image-content">
+                        <img src="../static/assets/images/gallery/gallery-11.jpg" alt="blog" />
+                        <div class="overlay-background gradient-transparent"> 
+                            <a href="../static/assets/images/gallery/gallery-11.jpg" class="image-pop-up">
+                                <span><i class="fa fa-picture-o"></i>Apartment</span>
+                            </a><!-- /.hover-content -->
+                        </div><!-- /.hover-content -->
+                    </div><!-- /.image-content -->
+	            </div><!-- /.col-md-3 -->
+	            <div class="col-md-3 col-sm-6 col-xs-6">
+                    <div class="gallery-image-content">
+                        <img src="../static/assets/images/gallery/gallery-12.jpg" alt="blog" />
+                        <div class="overlay-background gradient-transparent"> 
+                            <a href="../static/assets/images/gallery/gallery-12.jpg" class="image-pop-up">
+                               <span><i class="fa fa-picture-o"></i>Apartment</span>
+                            </a><!-- /.hover-content -->
+                        </div><!-- /.hover-content -->
+                    </div><!-- /.image-content -->
+	            </div><!-- /.col-md-3 -->
+	        </div><!-- /.row -->   
+	        <!-- <a href="#" class="button nevy-button button-radius default-template-gradient">load more</a> -->
+	    </div><!-- /.container -->
+	</div><!-- /.photo-gallery-area-->
+{% endif %}
+{% endblock content %}

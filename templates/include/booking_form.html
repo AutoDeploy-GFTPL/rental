@@ -1,0 +1,94 @@
+<form action="{% url 'apartment-detail' None %}" id="apartment_id" class="advance_search_query booking-form">
+    <div class="form-bg seven">
+        <div class="form-content">
+            <h2 class="form-title">Book This Apartment</h2>
+            <div class="form-group">
+                <label>Full Name</label>
+                <input type="text" id="name" name="name" placeholder="Full name">
+            </div><!-- /.form-group -->
+            <div class="form-group">
+                <label>Subject</label>
+                <input type="text" id="subject" name="subject" placeholder="Subject">
+            </div><!-- /.form-group -->
+            <div class="form-group">
+                <label>Phone Number</label>
+                <input type="tel" id="phone" name="phone" placeholder="+91 99999-99999">
+            </div><!-- /.form-group -->
+            <div class="form-group">
+                <label>Email Address</label>
+                <input type="email" id="email" name="email" placeholder="example@domain.com">
+            </div><!-- /.form-group -->
+            <div class="form-group">
+                <label>Your Message</label>
+                <textarea placeholder="Message" id="message" name="message" class="form-controller"></textarea>
+            </div><!-- /.form-group -->
+            <div class="form-group">
+                <button type="submit" class="button default-template-gradient button-radius">Request Booking</button>
+            </div><!-- /.form-group -->
+        </div><!-- /.form-content -->
+    </div><!-- /.form-bg -->
+</form>
+
+
+<div class="text-start" style="text-align: start;">
+    <div id="apartment_toast"></div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    function showToast(message, colorClass, toaster_id) {
+        let toast_id = document.getElementById(toaster_id);
+        toast_id.innerHTML = '';
+
+        const toastDiv = document.createElement("div");
+        toastDiv.innerHTML = message;
+        toastDiv.classList.add(colorClass);
+
+        toast_id.appendChild(toastDiv);
+        setTimeout(function () {
+            toastDiv.remove();
+        }, 3000);
+    }
+
+    $(document).on('submit', '#apartment_id', function (e) {
+        e.preventDefault();
+        $.ajaxSetup({
+            headers: {
+                "X-CSRFToken": getCookie("csrftoken")
+            },
+        });
+
+        $.ajax({
+            type: 'POST',
+            url: "{% url 'apartment-detail' None %}",
+            data: $(this).serialize(),
+            success: function (response) {
+                showToast(response.message, response.color_class, 'apartment_toast');
+                if (response.color_class === 'success-toast') {
+                    $('#name').val('');
+                    $('#phone').val('');
+                    $('#email').val('');
+                    $('#family_member').val('');
+                    $('#children').val('');
+                    $('#message').val('');
+
+                }
+            },
+            error: function () {
+                showToast('Something went wrong! Please try again.', 'error-toast', 'apartment_toast');
+            }
+        });
+    });
+    function getCookie(cname) {
+        var name = cname + "=";
+        var ca = document.cookie.split(';');
+        for (var i = 0; i < ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0) == ' ') c = c.substring(1);
+            if (c.indexOf(name) == 0)
+                return c.substring(name.length, c.length);
+        }
+        return "";
+    }
+</script>
+

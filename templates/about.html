@@ -1,0 +1,227 @@
+{% extends 'base.html' %}
+
+{% block metatags %}
+<title>{% if seo_about.meta_title %}{{seo_about.meta_title}}{% else %}{{company.company_name}}{% endif %}</title>
+<meta name="description" content="{{ seo_about.meta_description }}">
+<meta name="keywords" content="{{ seo_about.meta_keywords }}">
+<link rel="canonical" href="{{ seo_about.canonical_tag }}">
+{% endblock metatags %}
+
+{% block style %}
+
+{% endblock style %}
+
+{% block script %}
+
+{% endblock script %}
+
+{% block content %}
+
+
+{% include 'include/banner.html' %}
+
+
+{% if not about and not about_section %}
+    <!-- ====== About Main Content ====== --> 
+    <section class="about-main-content">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="about-top-content">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="section-title-area text-center">
+                                    
+                                    {% if about_heading %}
+                                    <h2 class="section-title default-text-gradient">Why <br/>{{about_heading.title}}</h2>
+                                    <p class="section-description">{{about_heading.description}}</p>
+                                    {% else %}
+                                    <h2 class="section-title default-text-gradient">Why <br/>Choose Us</h2>
+                                    <p class="section-description">Best offers from the house chef</p>
+                                    {% endif %}
+                                        
+                                </div><!-- /.section-title-area -->
+                            </div><!-- /.col-md-12 -->
+                        </div><!-- /.row -->
+                        <div class="row">
+                            <div class="col-md-5">
+                                <div class="about-content-left">
+                                    <h2>Best<br> Rent Service,<br> enjoy your<br> life</h2>
+                                </div><!-- /.about-content-left-->
+                            </div><!-- /.col-md-5 -->
+                            <div class="col-md-7">
+                                <div class="about-content-right">
+                                    <p>Sed pellentesque pulvinar arcu ac congue. Sed sed est nec justo maximus blandit. Curabitur lacinia, eros sit amet maximus suscipit, magna sapien veneuynatis eros, et gravida urna massa ut lectus. Quisque lacinia laciunia viverra. Nullram nec est et lorem sodales ornare a in sapien. In trtset urna marximus, conse ctetur iligula in, gravida erat. Nullam digniifssrim hendrerit auctor. Sed varius, dolor vitae iaculis condim rtweentum, massa nisl cursus sapien, gravida ultrices nisi dolor non erat.</p>
+                                </div><!-- /.about-conten-right-->
+                            </div><!-- /.col-md-7 -->
+                        </div><!-- /.row -->
+                    </div><!-- /.top-content -->
+                </div><!-- /.col-md-12 -->
+            </div><!-- /.row -->
+        </div><!-- /.container -->
+    </section><!-- /.about-main-content -->
+    <!-- ====== About Bottom Content ====== --> 
+    <section class="about-bottom-content">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9 full-width-content">
+                    <div class="image-content gradient-circle">
+                        <div>
+                            <span>
+                                <img src="../static/assets/images/about-page-johan.png" alt="johan" />
+                            </span>
+                        </div>
+                    </div><!-- /.image-content -->
+                    <div class="author-content">
+                        <div class="author-content-area">                        
+                            <h2 class="author-name default-text-gradient">Dr. Abdus Sabbir</h2> 
+                            <p class="author-designation">Rent House Admin</p>
+                        </div><!-- /.author-content-area -->
+                    </div><!-- /.author-content -->
+                    <p>Cras et mauris eget lorem ultricies fermentum a in diam. Morbi mollis pesllentesque aug ue nec rhoncus. Nam ut ogrci augue. Phasellus ac venenatis orci. Nulalam iaculis lao reet maa, vitae tempus ante tincidunte et. dolor st ametisnj, consectetur adipiscing elit. Cras vitaie nbh nisl. Cras et mauis eget loremams ultricies ferme ntum a in diam.Nam ut orci augue. Pha sellus ac venen adatis orci. Nullam iaculis lao reetings maa, vitae tempus ante tincidunte et. </p>
+
+                <div class="author-sign pull-right">
+                    <img src="../static/assets/images/sine.png" alt="sine" />
+                </div><!-- /.author-sign -->
+                </div><!-- /.col-md-7 -->
+            </div><!-- /.riv row -->
+        </div><!-- /.container -->
+    </section><!-- /.about-bottom-content -->
+{% elif about and about_section and about_section.show is True %}
+    <!-- ====== About Main Content ====== --> 
+    <section class="about-main-content">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="about-top-content">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="section-title-area text-center">
+                                    
+                                    {% if about_heading %}
+                                    <h2 class="section-title default-text-gradient">Why <br/>{{about_heading.title}}</h2>
+                                    <p class="section-description">{{about_heading.description}}</p>
+                                    {% else %}
+                                    <h2 class="section-title default-text-gradient">Why <br/>Choose Us</h2>
+                                    <p class="section-description">Best offers from the house chef</p>
+                                    {% endif %}
+                                        
+                                </div><!-- /.section-title-area -->
+                            </div><!-- /.col-md-12 -->
+                        </div><!-- /.row -->
+                        <div class="row">
+                            <div class="col-md-5">
+                                <div class="about-content-left">
+
+                                    <h2>{{about.title}}</h2>
+                                </div><!-- /.about-content-left-->
+                            </div><!-- /.col-md-5 -->
+                            <div class="col-md-7">
+                                <div class="about-content-right">
+                                    <p>{{about.description}}</p>
+                                </div><!-- /.about-conten-right-->
+                            </div><!-- /.col-md-7 -->
+                        </div><!-- /.row -->
+                    </div><!-- /.top-content -->
+                </div><!-- /.col-md-12 -->
+            </div><!-- /.row -->
+        </div><!-- /.container -->
+    </section><!-- /.about-main-content -->
+
+    <!-- ====== About Bottom Content ====== --> 
+    <section class="about-bottom-content">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9 full-width-content">
+                    <div class="image-content gradient-circle">
+                        <div>
+                            <span>
+                                <img src="{{about.house_admin.url}}" alt="johan" width="223px" height="223px"/>
+                            </span>
+                        </div>
+                    </div><!-- /.image-content -->
+                    <div class="author-content">
+                        <div class="author-content-area">                        
+                            <h2 class="author-name default-text-gradient">{{about.admin_name}}</h2> 
+                            <p class="author-designation">{{about.admin_designation}}</p>
+                        </div><!-- /.author-content-area -->
+                    </div><!-- /.author-content -->
+                    <p>{{about.admin_description}}</p>
+                
+                <div class="author-sign pull-right">
+                    <img src="{{about.admin_signature.url}}" alt="sine" style="width:71px;"/>
+                </div><!-- /.author-sign -->
+                </div><!-- /.col-md-7 -->
+            </div><!-- /.riv row -->
+        </div><!-- /.container -->
+    </section><!-- /.about-bottom-content -->
+{% elif not about and about_section and about_section.show is True %}
+    <!-- ====== About Main Content ====== --> 
+    <section class="about-main-content">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="about-top-content">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="section-title-area text-center">
+                                    
+                                    {% if about_heading %}
+                                    <h2 class="section-title default-text-gradient">Why <br/>{{about_heading.title}}</h2>
+                                    <p class="section-description">{{about_heading.description}}</p>
+                                    {% else %}
+                                    <h2 class="section-title default-text-gradient">Why <br/>Choose Us</h2>
+                                    <p class="section-description">Best offers from the house chef</p>
+                                    {% endif %}
+                                        
+                                </div><!-- /.section-title-area -->
+                            </div><!-- /.col-md-12 -->
+                        </div><!-- /.row -->
+                        <div class="row">
+                            <div class="col-md-5">
+                                <div class="about-content-left">
+                                    <h2>Best<br> Rent Service,<br> enjoy your<br> life</h2>
+                                </div><!-- /.about-content-left-->
+                            </div><!-- /.col-md-5 -->
+                            <div class="col-md-7">
+                                <div class="about-content-right">
+                                    <p>Sed pellentesque pulvinar arcu ac congue. Sed sed est nec justo maximus blandit. Curabitur lacinia, eros sit amet maximus suscipit, magna sapien veneuynatis eros, et gravida urna massa ut lectus. Quisque lacinia laciunia viverra. Nullram nec est et lorem sodales ornare a in sapien. In trtset urna marximus, conse ctetur iligula in, gravida erat. Nullam digniifssrim hendrerit auctor. Sed varius, dolor vitae iaculis condim rtweentum, massa nisl cursus sapien, gravida ultrices nisi dolor non erat.</p>
+                                </div><!-- /.about-conten-right-->
+                            </div><!-- /.col-md-7 -->
+                        </div><!-- /.row -->
+                    </div><!-- /.top-content -->
+                </div><!-- /.col-md-12 -->
+            </div><!-- /.row -->
+        </div><!-- /.container -->
+    </section><!-- /.about-main-content -->
+    <!-- ====== About Bottom Content ====== --> 
+    <section class="about-bottom-content">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9 full-width-content">
+                    <div class="image-content gradient-circle">
+                        <div>
+                            <span>
+                                <img src="../static/assets/images/about-page-johan.png" alt="johan" />
+                            </span>
+                        </div>
+                    </div><!-- /.image-content -->
+                    <div class="author-content">
+                        <div class="author-content-area">                        
+                            <h2 class="author-name default-text-gradient">Dr. Abdus Sabbir</h2> 
+                            <p class="author-designation">Rent House Admin</p>
+                        </div><!-- /.author-content-area -->
+                    </div><!-- /.author-content -->
+                    <p>Cras et mauris eget lorem ultricies fermentum a in diam. Morbi mollis pesllentesque aug ue nec rhoncus. Nam ut ogrci augue. Phasellus ac venenatis orci. Nulalam iaculis lao reet maa, vitae tempus ante tincidunte et. dolor st ametisnj, consectetur adipiscing elit. Cras vitaie nbh nisl. Cras et mauis eget loremams ultricies ferme ntum a in diam.Nam ut orci augue. Pha sellus ac venen adatis orci. Nullam iaculis lao reetings maa, vitae tempus ante tincidunte et. </p>
+               
+                <div class="author-sign pull-right">
+                    <img src="../static/assets/images/sine.png" alt="sine" />
+                </div><!-- /.author-sign -->
+                </div><!-- /.col-md-7 -->
+            </div><!-- /.riv row -->
+        </div><!-- /.container -->
+    </section><!-- /.about-bottom-content -->
+{% endif %}
+    
+
+{% endblock content %}
